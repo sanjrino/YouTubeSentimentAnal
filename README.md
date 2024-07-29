@@ -1,2 +1,2 @@
-# Youtube Sentiment Analyzer
+# YouTube Sentiment Analyzer
 Sentiment Analysis of YouTube Comments
