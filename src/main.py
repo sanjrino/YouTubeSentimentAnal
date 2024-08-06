@@ -32,8 +32,11 @@ def get_api_key():
 def main():
     api_key, video_url, num_comments = welcome_message()
 
-    # Call the scraper
+     # Call the scraper
     AnalScraper.run_scraper(api_key, video_url, num_comments)
+
+    top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
+
 
 
 if __name__ == "__main__":
