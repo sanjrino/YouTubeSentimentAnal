@@ -9,7 +9,7 @@ import re
 from urllib.parse import urlparse, parse_qs
 
 # Read the API key from key.txt
-with open('../data/key.txt', 'r') as file:
+with open('../key.txt', 'r') as file:
     api_key = file.read().strip()
 
 # Akismet API Key, used to filter spam
@@ -228,7 +228,7 @@ def train_model(max_comments, translate, pos_analysis):
     input("Please ensure that the links.txt file is updated with the links and titles. Press Enter to continue...")
 
     # Read the updated links.txt file
-    with open('links.txt', 'r') as file:
+    with open('../data/links.txt', 'r') as file:
         lines = file.readlines()
 
     current_title = ""
