@@ -1,17 +1,13 @@
-import requests
+import os
 from googleapiclient.discovery import build
 import pandas as pd
 from tqdm import tqdm
-from concurrent.futures import ThreadPoolExecutor, as_completed
 import re
 from urllib.parse import urlparse, parse_qs
 
-# Read the API key from key.txt
-with open('../data/key.txt', 'r') as file:
-    api_key = file.read().strip()
-
-# Build the YouTube client using the API key
-youtube = build('youtube', 'v3', developerKey=api_key)
+# Ensure the data directory exists
+if not os.path.exists('../data'):
+    os.makedirs('../data')
 
 # Function to extract video ID from a YouTube URL
 def extract_video_id(url):
@@ -100,23 +96,23 @@ def create_pos_ready_file(comments, video_id):
             'Comment': comment['Comment']
         })
     pos_ready_df = pd.DataFrame(pos_ready_comments)
-    pos_ready_filename = f'data/POS_ready_{video_id}.csv'
+    pos_ready_filename = f'../data/POS_ready_{video_id}.csv'
     pos_ready_df.to_csv(pos_ready_filename, index=False)
     print(f'POS-ready comments have been saved to {pos_ready_filename}')
 
-def run_scraper():
-    # Prompt user for YouTube link
-    video_url = input("Enter the YouTube video URL: ").strip()
+def run_scraper(api_key, video_url, max_comments):
+    youtube = build('youtube', 'v3', developerKey=api_key)
+
     try:
         video_id = extract_video_id(video_url)
     except ValueError as e:
         print(f"Error processing URL: {e}")
         return
 
-    # Prompt user for number of comments to scrape
-    max_comments = input("Enter the number of comments to scrape (default is 500): ")
-    if not max_comments.isdigit():
+    if not max_comments.isdigit() and max_comments.lower() != 'all':
         max_comments = 500
+    elif max_comments.lower() == 'all':
+        max_comments = float('inf')
     else:
         max_comments = int(max_comments)
 
@@ -128,7 +124,7 @@ def run_scraper():
     processed_comments_df = pd.DataFrame(processed_comments)
 
     # Save processed comments to CSV file
-    processed_output_filename = f'data/Processed_Comments_{video_id}.csv'
+    processed_output_filename = f'../data/Processed_Comments_{video_id}.csv'
     processed_comments_df.to_csv(processed_output_filename, index=False)
     print(f'Processed comments have been saved to {processed_output_filename}')
 
