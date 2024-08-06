@@ -65,7 +65,7 @@ crf = sklearn_crfsuite.CRF(
 crf.fit(X_train, y_train)
 
 # saves the model
-with open('crf_pos_tagging_model.pkl', 'wb') as file:
+with open('crf_pos_tagger.pkl', 'wb') as file:
     pickle.dump(crf, file)
 
 # evaluate performance
