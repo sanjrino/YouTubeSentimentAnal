@@ -1,8 +1,5 @@
 import os
-#import AnalScraper
-#import POSTagging
-#import SentimentAnalysis
-#import Visualization
+import AnalScraper  # Ensure this is correctly implemented
 
 
 def welcome_message():
@@ -33,9 +30,10 @@ def get_api_key():
 
 
 def main():
-    api_key = get_api_key()
-    # The rest of the logic will be handled later
-    print(f"API key obtained: {api_key}")
+    api_key, video_url, num_comments = welcome_message()
+
+    # Call the scraper
+    AnalScraper.run_scraper(api_key, video_url, num_comments)
 
 
 if __name__ == "__main__":
