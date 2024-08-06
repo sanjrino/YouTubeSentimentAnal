@@ -9,7 +9,7 @@ import re
 from urllib.parse import urlparse, parse_qs
 
 # Read the API key from key.txt
-with open('key.txt', 'r') as file:
+with open('data/key.txt', 'r') as file:
     api_key = file.read().strip()
 
 # Akismet API Key, used to filter spam
