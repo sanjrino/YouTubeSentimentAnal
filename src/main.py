@@ -34,7 +34,7 @@ def main():
     pos_comments = CleanData.clean_comments_for_pos(comments)
     sentiment_comments = CleanData.clean_comments_for_sentiment(comments)
 
-    top_nouns, top_adjectives = POSTagging.pos_tagging(pos_comments)
+    top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
 
     sentiment_results = SentimentAnalysis.sentiment_analysis(sentiment_comments)
 
