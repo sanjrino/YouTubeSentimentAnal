@@ -12,7 +12,7 @@ with open('name_here.pkl', 'rb') as file:
 
 # extracts features for each word in a sentence
 def get_word_features(sentence, i):
-    word = sentence[i][0]
+    word = sentence[i]
     features = {
         'word': word,
         'is_first': i == 0,  # if the word is a first word
