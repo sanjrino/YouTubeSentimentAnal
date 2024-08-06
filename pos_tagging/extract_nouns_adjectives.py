@@ -5,7 +5,7 @@ import nltk
 # load the csv file
 df = pandas.read_csv('name_here.csv')
 
-# load the CRF model
+# load the pos tagging model
 with open('name_here.pkl', 'rb') as file:
     model = pickle.load(file)
 
