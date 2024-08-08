@@ -1,5 +1,6 @@
 import os
 import AnalScraper  # Ensure this is correctly implemented
+import POSTagging
 
 
 def welcome_message():
@@ -35,7 +36,7 @@ def main():
      # Call the scraper
     AnalScraper.run_scraper(api_key, video_url, num_comments)
 
-    top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
+   # top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
 
 
 
