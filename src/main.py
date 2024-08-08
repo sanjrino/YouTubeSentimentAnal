@@ -52,6 +52,9 @@ def main():
      # Call the scraper
     AnalScraper.run_scraper(api_key, video_url, num_comments)
 
+    #return, do what u want
+    csv_path = AnalScraper.run_scraper(api_key, video_url, num_comments)
+    top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
    # top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
 
     video_id = AnalScraper.extract_video_id(video_url)
