@@ -126,10 +126,13 @@ def run_scraper(api_key, video_url, max_comments):
     # Save processed comments to CSV file
     processed_output_filename = f'../data/Processed_Comments_{video_id}.csv'
     processed_comments_df.to_csv(processed_output_filename, index=False)
+
     print(f'Processed comments have been saved to {processed_output_filename}')
 
     # Create POS-ready file
     create_pos_ready_file(processed_comments, video_id)
+    return pos_ready_filename
+
 
 if __name__ == '__main__':
     run_scraper()
