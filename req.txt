@@ -1,6 +1,13 @@
-requests
-google-api-python-client
-deep-translator
-textblob
+torch
 pandas
+transformers
+scikit-learn
+nltk
+sklearn-crfsuite
+google-api-python-client
 tqdm
+googletrans==4.0.0-rc1  # This version is known to work well
+textblob
+requests
+matplotlib
+wordcloud
