@@ -1,6 +1,7 @@
 import subprocess
 import os
 import AnalScraper  # Ensure this is correctly implemented
+import POSTagging
 
 #needed for the ML_Anal
 import sys
@@ -51,7 +52,7 @@ def main():
      # Call the scraper
     AnalScraper.run_scraper(api_key, video_url, num_comments)
 
-    top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
+   # top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
 
     video_id = AnalScraper.extract_video_id(video_url)
     comments_file = f'../data/Processed_Comments_{video_id}.csv'
