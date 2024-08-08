@@ -56,9 +56,10 @@ def analyze_comments(comments_file, video_id):
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, f'sentiment_fromML_{video_id}.txt')
 
-    with open(output_file, 'w') as f:
-        for result in results:
-            f.write(result + '\n')
+    # Prepare the results in a formatted string
+    formatted_results = "\n".join(results)
+    # Return the formatted results
+    return formatted_results
 
 
 if __name__ == "__main__":
