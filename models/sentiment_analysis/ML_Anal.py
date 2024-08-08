@@ -56,10 +56,11 @@ def analyze_comments(comments_file, video_id):
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, f'sentiment_fromML_{video_id}.txt')
 
-    # Prepare the results in a formatted string
-    formatted_results = "\n".join(results)
-    # Return the formatted results
-    return formatted_results
+    # return the sentiment percentages
+    positive_percentage = sentiment_percentages_mapped.get('positive', 0)
+    neutral_percentage = sentiment_percentages_mapped.get('neutral', 0)
+    negative_percentage = sentiment_percentages_mapped.get('negative', 0)
+    return positive_percentage, neutral_percentage, negative_percentage
 
 
 if __name__ == "__main__":
