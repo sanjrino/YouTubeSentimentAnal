@@ -99,6 +99,7 @@ def create_pos_ready_file(comments, video_id):
     pos_ready_filename = f'../data/POS_ready_{video_id}.csv'
     pos_ready_df.to_csv(pos_ready_filename, index=False)
     print(f'POS-ready comments have been saved to {pos_ready_filename}')
+    return pos_ready_filename
 
 def run_scraper(api_key, video_url, max_comments):
     youtube = build('youtube', 'v3', developerKey=api_key)
@@ -130,8 +131,7 @@ def run_scraper(api_key, video_url, max_comments):
     print(f'Processed comments have been saved to {processed_output_filename}')
 
     # Create POS-ready file
-    create_pos_ready_file(processed_comments, video_id)
-    return pos_ready_filename
+    return create_pos_ready_file(processed_comments, video_id)
 
 
 if __name__ == '__main__':

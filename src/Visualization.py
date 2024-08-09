@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
-def visualize_data(top_nouns, top_adjectives, positive_percentage, neutral_percentage, negative_percentage, yt_link):
+def visualize_data(top_nouns, top_adjectives, positive_percentage, neutral_percentage, negative_percentage, yt_link, video_id):
     # create word clouds from top nouns and adjectives
     noun_wc = WordCloud(width=800, height=400, background_color='white').generate_from_frequencies(dict(top_nouns))
     adj_wc = WordCloud(width=800, height=400, background_color='white').generate_from_frequencies(dict(top_adjectives))
@@ -30,5 +30,5 @@ def visualize_data(top_nouns, top_adjectives, positive_percentage, neutral_perce
     plt.figtext(0.5, 0.2, sentiment_text, ha="center", fontsize=12, bbox={"facecolor": "white", "alpha": 0.5, "pad": 5})
 
     # save as pdf and show the plot
-    plt.savefig("YouTube_Comment_Analysis_Report.pdf", dpi=600)
+    plt.savefig(f"YouTube_Comments_Analysis_Report_{video_id}.pdf", dpi=600)
     plt.show()

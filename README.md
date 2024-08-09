@@ -1,14 +1,42 @@
 # YouTube Sentiment Analyzer
+Analyzes YouTube comments to get insights into viewer sentiment, frequently used nouns, and adjectives. Generates a PDF report with viewer sentiment distribution and word clouds.
 
-Sentiment Analysis of YouTube Comments
+- **Sentiment Analysis:** We fine-tuned DistilBERT on a manually labeled dataset of 3,000 comments, sourced from three YouTube categories: music, news, and gaming. You can find the video links we used in `links.txt` in the `data` directory.
+  
+- **POS Tagging:** For Part-of-Speech (POS) tagging, we trained Conditional Random Fields (CRF) and Maximum Entropy (MaxEnt) models using the Penn Treebank corpus and used it to identify key nouns and adjectives.
 
+## Setup
+### Prerequisites
+- Python 3.8+
+- Required libraries (auto-installed via `req.txt`)
 
-Before running the main.py, please download model.safetensors from google drive and place in /models/ml_model: 
-https://drive.google.com/drive/folders/12vEgQzEx3cIuglwueAydBsIMoLbjlWvL?usp=sharing
+### Installation
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/sanjrino/YouTubeSentimentAnal.git
+   cd YouTubeSentimentAnalyzer
+   ```
+2. **Download the model:**
+   [Download](https://drive.google.com/drive/folders/12vEgQzEx3cIuglwueAydBsIMoLbjlWvL?usp=sharing) `model.safetensors` and place it in `models/sentiment_analysis` directory.
 
-To run python code, just run main.py (automatically, hopefully, will download all needed libraries)
+3. **(Optional) Install dependencies:**
+   The necessary dependencies should install automatically when you run `main.py`, but if you prefer, you can manually install them by running:
+   ```bash
+   pip install -r req.txt
+   ```
 
-(Or get pycharm and right click all the red underlined dependencies)
+## Usage
+1. **Run the analysis:**
+   ```bash
+   python main.py
+   ```
+   Input your YouTube video link and API key when prompted. The output will be a PDF report named `YouTube_Comments_Analysis_Report_<video_id>.pdf` within the `src` directory.
 
-If you are looking at the code, I am sorry in advance
--R
+2. **Review your report:**
+   The PDF report will be displayed automatically. Enjoy!
+
+## Disclaimer
+This project was intended for educational purposes. The code and model provided are not guaranteed to be free from bugs or errors.
+
+*"If you are looking at the code, I am sorry in advance."*  
+— rinosan

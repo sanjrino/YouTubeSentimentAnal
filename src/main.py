@@ -2,10 +2,11 @@ import subprocess
 import os
 import AnalScraper  # Ensure this is correctly implemented
 import POSTagging
+import Visualization
 
 #needed for the ML_Anal
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../models/ml_model'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../models/sentiment_analysis'))
 import ML_Anal
 
 #get req.txt automatically
@@ -52,15 +53,15 @@ def main():
      # Call the scraper
     AnalScraper.run_scraper(api_key, video_url, num_comments)
 
-    #return, do what u want
     csv_path = AnalScraper.run_scraper(api_key, video_url, num_comments)
     top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
-   # top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
 
     video_id = AnalScraper.extract_video_id(video_url)
+    print('Analyzing...')
     comments_file = f'../data/Processed_Comments_{video_id}.csv'
-    ML_Anal.analyze_comments(comments_file, video_id)
-
+    positive_percentage, neutral_percentage, negative_percentage = ML_Anal.analyze_comments(comments_file, video_id)
+    print('Visualizing...')
+    Visualization.visualize_data(top_nouns,top_adjectives,positive_percentage, neutral_percentage, negative_percentage, video_url, video_id)
 
 
 if __name__ == "__main__":
