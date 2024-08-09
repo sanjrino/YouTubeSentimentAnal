@@ -28,11 +28,23 @@ Analyzes YouTube comments to get insights into viewer sentiment, frequently used
    It may take a while, so hang in there!
 
 ## Usage
+### For Linux/macOS:
+1. **Run the analysis:**
+   ```bash
+   cd src
+   python3 main.py
+   ```
+   Input your YouTube video link and API key when prompted. The output will be a PDF report named `YouTube_Comments_Analysis_Report_<video_id>.pdf` within the `src` directory.
+
+2. **Review your report:**
+   The PDF report will be displayed automatically. Enjoy!
+
+### For Windows:
 1. **Run the analysis:**
    ```bash
    cd src
    python main.py
-   ```
+    ```
    Input your YouTube video link and API key when prompted. The output will be a PDF report named `YouTube_Comments_Analysis_Report_<video_id>.pdf` within the `src` directory.
 
 2. **Review your report:**
