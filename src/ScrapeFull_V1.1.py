@@ -1,3 +1,5 @@
+# This is the origina scraper we used to get training data for the ML model. Not used in the main program
+# Wanted to use it as a DoAll program but later decided on having a main. Therefore this scraper is just a relict
 import requests
 from googleapiclient.discovery import build
 from googletrans import Translator
@@ -126,10 +128,10 @@ def process_comment(comment, akismet_api_key, blog_url, translate=False, transla
             print(f"Spam detected: {cleaned_text}")
             return None
 
-        # Autocorrect text
+        # Autocorrect text, it created more problems than not so at the end we didnt use it
         corrected_text = autocorrect_text(cleaned_text)
 
-        # Translate text if required
+        # Translate text if required, also created problems. Translated broken english to broken english
         if translate and translator:
             translated_text = translator.translate(corrected_text, dest='en').text
         else:

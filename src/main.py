@@ -33,26 +33,28 @@ def get_api_key():
     if os.path.exists('../key.txt'):
         with open('../key.txt', 'r') as file:
             api_key = file.read().strip()
-        if api_key == "get your own":
+        if api_key == "get your own": #it has to be get your own, if not its gonna take anything as key and later not run
             api_key = input("Enter your YouTube API key: ")
-            with open('../key.txt', 'w') as file:  # Fixed the path here
+            with open('../key.txt', 'w') as file:  
                 file.write(api_key)
     else:
         api_key = input("Enter your YouTube API key: ")
-        with open('../key.txt', 'w') as file:  # Fixed the path here
+        with open('../key.txt', 'w') as file:
             file.write(api_key)
     return api_key
 
 
 def main():
+    
     requirements_file = "../req.txt"
     install_requirements(requirements_file)
 
     api_key, video_url, num_comments = welcome_message()
 
      # Call the scraper
+    print('Scraping...')
     AnalScraper.run_scraper(api_key, video_url, num_comments)
-
+    
     csv_path = AnalScraper.run_scraper(api_key, video_url, num_comments)
     top_nouns, top_adjectives = POSTagging.pos_tagging(csv_path)
 
