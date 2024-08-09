@@ -8,6 +8,8 @@ def pos_tagging(csv_path):
     # load the csv file
     df = pandas.read_csv(csv_path)
 
+    nltk.download('punkt')
+
     # load the pos tagging model (or alternatively use the maxent_pos_tagger.pkl)
     with open('../models/pos_tagging/crf_pos_tagger.pkl', 'rb') as file:
         model = pickle.load(file)
