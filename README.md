@@ -42,4 +42,4 @@ Analyzes YouTube comments to get insights into viewer sentiment, frequently used
 This project was intended for educational purposes. The code and model provided are not guaranteed to be free from bugs or errors.
 
 *"If you are looking at the code, I am sorry in advance."*  
-— rinosan
+— sanjrino
