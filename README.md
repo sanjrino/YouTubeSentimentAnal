@@ -1,6 +1,10 @@
 # YouTube Sentiment Analyzer
 Analyzes YouTube comments to get insights into viewer sentiment, frequently used nouns, and adjectives. Generates a PDF report with viewer sentiment distribution and word clouds.
 
+- **Sentiment Analysis:** We fine-tuned DistilBERT on a manually labeled dataset of 3,000 comments, sourced from three YouTube categories: music, news, and gaming. You can find the video links we used in `links.txt` in the `data` directory.
+  
+- **POS Tagging:** For Part-of-Speech (POS) tagging, we trained Conditional Random Fields (CRF) and Maximum Entropy (MaxEnt) models using the Penn Treebank corpus and used it to identify key nouns and adjectives.
+
 ## Setup
 ### Prerequisites
 - Python 3.8+
