@@ -3,7 +3,6 @@ import pickle
 import nltk
 from collections import Counter
 
-
 def pos_tagging(csv_path):
     # load the csv file
     df = pandas.read_csv(csv_path)
@@ -60,7 +59,10 @@ def pos_tagging(csv_path):
     adj_counter = Counter()
 
     # tokenize comments and predict POS tags
-    for comment in comments:
+    for index, comment in enumerate(comments):
+        if not isinstance(comment, str):
+            print(f"Non-string comment at index {index}: {comment} (type: {type(comment)})")
+            continue
         tokens = nltk.word_tokenize(comment)
         pos_tags = predict_pos_tags(tokens, model)
 
