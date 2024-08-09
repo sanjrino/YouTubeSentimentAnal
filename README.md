@@ -3,7 +3,7 @@ Analyzes YouTube comments to get insights into viewer sentiment, frequently used
 
 - **Sentiment Analysis:** We fine-tuned DistilBERT on a manually labeled dataset of 3,000 comments, sourced from three YouTube categories: music, news, and gaming. You can find the video links we used in `links.txt` in the `data` directory.
   
-- **POS Tagging:** For Part-of-Speech (POS) tagging, we trained Conditional Random Fields (CRF) and Maximum Entropy (MaxEnt) models using the Penn Treebank corpus and used it to identify key nouns and adjectives.
+- **POS Tagging:** For Part-of-Speech (POS) tagging, we trained Conditional Random Fields (CRF) and Maximum Entropy (MaxEnt) models using the Penn Treebank corpus and used them to identify key nouns and adjectives.
 
 ## Setup
 ### Prerequisites
@@ -51,7 +51,7 @@ Analyzes YouTube comments to get insights into viewer sentiment, frequently used
    The PDF report will be displayed automatically. Enjoy!
 
 ## Disclaimer
-This project was intended for educational purposes. The code and model provided are not guaranteed to be free from bugs or errors.
+This project was intended for educational purposes. The code and models provided are not guaranteed to be free from bugs or errors.
 
 *"If you are looking at the code, I am sorry in advance."*  
 — sanjrino
