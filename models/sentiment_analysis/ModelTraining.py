@@ -5,7 +5,7 @@ import torch
 from torch.utils.data import Dataset
 import time
 
-# Load your data
+# Load data
 data = pd.read_csv('ReadyToTrain.csv', header=None, names=['video_id', 'comment', 'label'])
 
 # Drop videoID
