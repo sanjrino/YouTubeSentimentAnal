@@ -14,7 +14,7 @@ Analyzes YouTube comments to get insights into viewer sentiment, frequently used
 ### Installation
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/sanjrino/YouTubeSentimentAnal.git
+   git clone https://github.com/sanjrino/YouTubeSentimentAnalyzer.git
    cd YouTubeSentimentAnalyzer
    ```
 2. **Download the model:**
