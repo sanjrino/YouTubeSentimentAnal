@@ -1,10 +1,8 @@
 # YouTube Sentiment Analyzer
-
-## Overview
 Analyzes YouTube comments to get insights into viewer sentiment, frequently used nouns, and adjectives. Generates a PDF report with viewer sentiment distribution and word clouds.
 
 ## Setup
-
+g
 ### Prerequisites
 - Python 3.8+
 - Required libraries (auto-installed via `requirements.txt`)
