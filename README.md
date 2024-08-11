@@ -27,6 +27,17 @@ Analyzes YouTube comments to get insights into viewer sentiment, frequently used
    ```
    It may take a while, so hang in there!
 
+### Error Handling
+If you encounter errors related to `punkt`, please ensure that both `punkt` and `punkt_tab` are downloaded by running the following in Python:
+
+```python
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
+```
+
+Depending on your system, downloading `punkt` alone may not be sufficient.
+
 ## Usage
 ### For Linux/macOS:
 1. **Run the analysis:**
